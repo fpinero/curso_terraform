@@ -114,3 +114,16 @@ output "output-example-2" {
 }
 
 # functions
+locals {
+    person_names = ["Jorge", "Ana", "Héctor", "Alberto"]
+    mayus = [for i in local.person_names : upper(i)] # mayus contendrá la lista de person_names en mayúsculas
+    a_name = [for i in local.person_names : i if (substr(i,0,1) == "A")] # a_name contendrá los nombre que comiencen por A  
+}
+
+output "mayus" {
+    value = local.mayus
+}
+
+output "empiza_por_A" {
+    value = local.a_name
+}
