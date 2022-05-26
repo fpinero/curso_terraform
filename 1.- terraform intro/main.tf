@@ -112,3 +112,5 @@ output "output-example" {
 output "output-example-2" {
     value = azurerm_resource_group.example.name
 }
+
+# functions
