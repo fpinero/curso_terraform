@@ -1,2 +1,1 @@
-# curso_terraform
-curso terraform Azure
+Curso básico sobre Terraform Azure
