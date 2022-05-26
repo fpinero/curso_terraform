@@ -1,0 +1,22 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] azurerm_resource_group.example (expand)" [label = "azurerm_resource_group.example", shape = "box"]
+		"[root] azurerm_resource_group.rg2 (expand)" [label = "azurerm_resource_group.rg2", shape = "box"]
+		"[root] azurerm_resource_group.rg3 (expand)" [label = "azurerm_resource_group.rg3", shape = "box"]
+		"[root] output.output-example" [label = "output.output-example", shape = "note"]
+		"[root] output.output-example-2" [label = "output.output-example-2", shape = "note"]
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]" [label = "provider[\"registry.terraform.io/hashicorp/azurerm\"]", shape = "diamond"]
+		"[root] azurerm_resource_group.example (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]"
+		"[root] azurerm_resource_group.rg2 (expand)" -> "[root] azurerm_resource_group.example (expand)"
+		"[root] azurerm_resource_group.rg3 (expand)" -> "[root] azurerm_resource_group.rg2 (expand)"
+		"[root] output.output-example" -> "[root] azurerm_resource_group.example (expand)"
+		"[root] output.output-example-2" -> "[root] azurerm_resource_group.example (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)" -> "[root] azurerm_resource_group.rg3 (expand)"
+		"[root] root" -> "[root] output.output-example"
+		"[root] root" -> "[root] output.output-example-2"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)"
+	}
+}
+
