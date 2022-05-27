@@ -124,6 +124,15 @@ output "mayus" {
     value = local.mayus
 }
 
-output "empiza_por_A" {
+output "empieza_por_A" {
     value = local.a_name
+}
+
+# data (llamadas a funciones de recursos del proveedor cloud)
+data "azurerm_resource_group" "example" {
+  name = "rg-para-pruebas"
+}
+
+output "id_de_rg-para-pruebas" {
+  value = data.azurerm_resource_group.example.id
 }
